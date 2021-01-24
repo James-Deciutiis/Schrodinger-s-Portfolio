@@ -1,0 +1,103 @@
+</html>
+<!DOCTYPE html>
+<html>	
+	<head>			
+	</head>			
+	<body>		
+		<html lang="en">
+			<title>Page Title</title>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<style>
+			/* Style the body */
+			body {
+				font-family: Arial;
+				margin: 0;
+				background-image: url('https://64.media.tumblr.com/c0e23fe2d07dad2c7f75f41f1eada374/6f72a86996fafb07-1b/s250x400/c7c84417e5de4523528f7eb989fba4705f49f062.jpg') ;	
+			}/* Page Content */
+			.content {
+				padding:10px;
+			}/*this is the logo*/
+	</style>
+	<center>	
+		<img src=https://64.media.tumblr.com/7ad5d53204e9d5ddd5b249d92329ad96/8071c19c8701a9ba-fa/s1280x1920/88634b91ecf81aed88fc2d3b0d28301ebbc1c377.png>
+	</center>	
+	<style>
+	#vcontainer {
+		display: table;
+		height: 100%;
+		width: 100%;
+		min-height: 400px;
+	}
+	#hcontainer {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+	}#content {
+		display: inline-block;
+		border: red 20px solid;
+		background-color: #fcf8ea  ;
+		text-align: center ;
+		font-size: 20px;  
+		width: 800px;
+		height: 10000px;
+	} 
+	</style>
+
+	<style>
+	.button {
+		background-color: #9cd92a; /* Green */
+		border: none;
+		color: white;
+		padding: 10px 60px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 20px;
+		margin: 2px 2px;
+		cursor: pointer;
+	}
+	</style> 
+	<div id="vcontainer">
+		<div id="hcontainer">  
+			<div id="content">  
+				<center>	
+				<h1> Get quote from start date: </h1>
+				<h3><%= start_date %></h3>
+				<form method="post" action="/quote"> 
+				<input type = text name = "stock_quote" placeholder="stock symbol">
+				<input type = "submit" name="check" value="check"/>
+				</form>
+					<h1> Quote: </h1>
+					<h3><%= quote %></h3>
+					<h1> Balance: </h1>
+					<h3><%= balance %></h3> 
+					<h1> Start Date: </h1>
+					<h3><%= start_date %></h3>
+					<h1> End Date: </h1>
+					<h3><%= end_date %></h3>
+					<h1> Add to your portfolio </h1>
+					<form method="post" action="/add"> 
+						<input type = text name = "stock_name" placeholder="stock symbol">
+						<input type = text name = "shares" placeholder="amount of shares">
+						<input type = "submit" name="add" value="add"/>
+				</form>
+					<h1> Current Portfolio: </h1>
+					<h3>
+					<% for(var i = 0; i<portfolio.length; i++){ %>
+		    				<h3><%= portfolio[i] %></h3>
+	        			<% } %>
+					</h3>
+				<form method="post" action="/result">
+					<input class="button" type = "submit" name="calculate" value="calc"/><br></br>
+				</form>
+				<form method="post" action="/start">
+					<input class="button" type = "submit" name="back" value="back"/><br></br>
+				</form>
+				</center>		
+			</div>     
+		</div>
+	</div>				
+	</body>	
+</html>
+
