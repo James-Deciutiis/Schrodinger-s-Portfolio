@@ -2,6 +2,7 @@ const { IEXCloudClient } = require("node-iex-cloud")
 const fetch = require("node-fetch")
 const express = require('express')
 const app = express()
+const port = process.env.PORT || 4000
 
 var balance = 0
 var starting_balance = 0
@@ -124,4 +125,8 @@ app.post('/result', function(req, res){
         console.log(error)
     }
 
+});
+
+server.listen(port, () => {
+	console.log("App is running on port " + port)
 });
