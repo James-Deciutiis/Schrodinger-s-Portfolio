@@ -116,9 +116,10 @@ app.post('/result', function(req, res){
             result_array.push(["Symbol: " + sym + " ", " Bought at: " + close + " "," Close at: " + end_data_array[i][1] + " ", " Amount of shares bought: " + shares + " ", " Gain/Loss(%): " + retval + " " + "Equity($): " + equity + " " ])
             
         }
-        
-        var final_percentage = ((final_value-starting_balance)/(starting_balance)) * 100
-        res.render('result', {portfolio: result_array, final_value: final_value+balance, start_value: starting_balance, percent : final_percentage})
+       	
+	balance+=final_value
+        var final_percentage = ((balance-starting_balance)/(starting_balance)) * 100
+        res.render('result', {portfolio: result_array, final_value: balance, start_value: starting_balance, percent : final_percentage})
     }
     catch(error){
         console.log(error)
